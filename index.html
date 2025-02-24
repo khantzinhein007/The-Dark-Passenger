@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dexter Morgan: The Dark Passenger</title>
+    <style>
+        body { 
+            font-family: 'Courier New', monospace; 
+            background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png'), #0d1a26; 
+            background-blend-mode: overlay; 
+            color: #e6e6e6; 
+            text-align: center; 
+            padding: 20px; 
+            margin: 0; 
+        }
+        #game-container { 
+            max-width: 900px; 
+            margin: 20px auto; 
+            background: rgba(0, 0, 0, 0.85); 
+            padding: 20px; 
+            border: 3px solid #1a3c34; 
+            border-radius: 5px; 
+            box-shadow: 0 0 30px rgba(26, 60, 52, 0.8), inset 0 0 10px rgba(26, 60, 52, 0.3); 
+            position: relative; 
+        }
+        h1 { 
+            color: #1a3c34; 
+            text-shadow: 0 0 10px #2a6656, 0 0 20px #2a6656; 
+            letter-spacing: 2px; 
+            animation: pulse 2s infinite; 
+        }
+        #output { 
+            background: radial-gradient(circle, rgba(26, 60, 52, 0.1) 0%, rgba(0, 0, 0, 0.9) 70%); 
+            padding: 15px; 
+            height: 500px; 
+            overflow-y: auto; 
+            text-align: left; 
+            border: 2px dashed #1a3c34; 
+            margin-bottom: 20px; 
+            line-height: 1.6; 
+            box-shadow: inset 0 0 15px rgba(26, 60, 52, 0.4); 
+        }
+        button { 
+            background: linear-gradient(to bottom, #2a6656, #1a3c34); 
+            color: #b3d9d1; 
+            border: 2px solid #1a3c34; 
+            padding: 10px 20px; 
+            margin: 5px; 
+            cursor: pointer; 
+            border-radius: 3px; 
+            font-family: 'Courier New', monospace; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            text-shadow: 0 0 5px rgba(26, 60, 52, 0.8); 
+            box-shadow: inset 0 0 5px rgba(26, 60, 52, 0.5), 0 2px 10px rgba(0, 0, 0, 0.7); 
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        button::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: radial-gradient(circle, rgba(42, 102, 86, 0.2) 0%, transparent 70%); 
+            opacity: 0.3; 
+            pointer-events: none; 
+        }
+        button:hover { 
+            transform: scale(1.05); 
+            box-shadow: inset 0 0 10px rgba(26, 60, 52, 0.8), 0 0 20px rgba(26, 60, 52, 0.6); 
+            background: linear-gradient(to bottom, #3d8a74, #2a6656); 
+        }
+        .stat-bar { 
+            color: #b3d9d1; 
+            font-weight: bold; 
+            background: rgba(0, 0, 0, 0.9); 
+            padding: 8px; 
+            border-radius: 5px; 
+            border: 1px solid #1a3c34; 
+            margin-bottom: 10px; 
+            box-shadow: 0 2px 10px rgba(26, 60, 52, 0.3); 
+            animation: pulse 2s infinite; 
+        }
+        .warning { 
+            color: #ff4040; 
+            font-weight: bold; 
+            text-shadow: 0 0 5px #ff4040; 
+        }
+        .kill-flash { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            pointer-events: none; 
+            animation: flash 0.5s ease-out; 
+        }
+        .kill-flash.criminal { 
+            background: rgba(42, 102, 86, 0.3); 
+            border: 2px solid #2a6656; 
+        }
+        .kill-flash.high-profile { 
+            background: rgba(255, 64, 64, 0.5); 
+            border: 2px solid #ff4040; 
+            animation: flash 0.5s ease-out 2; 
+        }
+        @keyframes flash { 0% { opacity: 1; } 100% { opacity: 0; } }
+        @keyframes pulse { 0% { box-shadow: 0 2px 10px rgba(26, 60, 52, 0.3); } 50% { box-shadow: 0 2px 20px rgba(26, 60, 52, 0.6); } 100% { box-shadow: 0 2px 10px rgba(26, 60, 52, 0.3); } }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Dexter Morgan: The Dark Passenger</h1>
+        <div id="output"></div>
+        <div id="choices"></div>
+    </div>
+    <audio id="kill-sound" src="https://freesound.org/data/previews/66/66114_634166-lq.mp3" preload="auto"></audio>
+    <script src="game.js"></script>
+</body>
+</html>
