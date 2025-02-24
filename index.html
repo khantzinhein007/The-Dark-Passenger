@@ -90,26 +90,22 @@
             font-weight: bold; 
             text-shadow: 0 0 5px #ff4040; 
         }
-        .kill-flash { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            pointer-events: none; 
-            animation: flash 0.5s ease-out; 
+        .bloody-target {
+            color: #ff0000; 
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(255, 0, 0, 0.8), 0 0 8px rgba(255, 0, 0, 0.6); 
+            animation: drip 1.5s infinite ease-in-out; 
         }
-        .kill-flash.criminal { 
-            background: rgba(42, 102, 86, 0.3); 
-            border: 2px solid #2a6656; 
+        @keyframes pulse { 
+            0% { box-shadow: 0 2px 10px rgba(26, 60, 52, 0.3); } 
+            50% { box-shadow: 0 2px 20px rgba(26, 60, 52, 0.6); } 
+            100% { box-shadow: 0 2px 10px rgba(26, 60, 52, 0.3); } 
         }
-        .kill-flash.high-profile { 
-            background: rgba(255, 64, 64, 0.5); 
-            border: 2px solid #ff4040; 
-            animation: flash 0.5s ease-out 2; 
+        @keyframes drip { 
+            0% { text-shadow: 1px 1px 3px rgba(255, 0, 0, 0.8), 0 0 8px rgba(255, 0, 0, 0.6); }
+            50% { text-shadow: 1px 3px 5px rgba(255, 0, 0, 1), 0 0 12px rgba(255, 0, 0, 0.8); }
+            100% { text-shadow: 1px 1px 3px rgba(255, 0, 0, 0.8), 0 0 8px rgba(255, 0, 0, 0.6); }
         }
-        @keyframes flash { 0% { opacity: 1; } 100% { opacity: 0; } }
-        @keyframes pulse { 0% { box-shadow: 0 2px 10px rgba(26, 60, 52, 0.3); } 50% { box-shadow: 0 2px 20px rgba(26, 60, 52, 0.6); } 100% { box-shadow: 0 2px 10px rgba(26, 60, 52, 0.3); } }
     </style>
 </head>
 <body>
@@ -118,7 +114,6 @@
         <div id="output"></div>
         <div id="choices"></div>
     </div>
-    <audio id="kill-sound" src="https://freesound.org/data/previews/66/66114_634166-lq.mp3" preload="auto"></audio>
     <script src="game.js"></script>
 </body>
 </html>
