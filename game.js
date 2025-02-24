@@ -14,7 +14,10 @@ const difficulties = {
     "Hard": { cash: 100, slides: 1, plastic: 1, suspicionRate: 1.5, façadeDrain: 1.5, killsToWin: 10, intro: "Doakes is close. Precision’s my shield." }
 };
 
+// ... (previous code unchanged up to targets definition)
+
 const targets = [
+    // Original Targets
     { name: "Drug Dealer", profile: "Cocky, armed, street corner", worth: 200, trait: null, resistChance: 0.3, trustThreshold: 60, isRival: false },
     { name: "Human Trafficker", profile: "Sly, paranoid, warehouse", worth: 250, trait: null, resistChance: 0.4, trustThreshold: 50, isRival: false },
     { name: "Serial Rapist", profile: "Arrogant, prowling bars", worth: 180, trait: null, resistChance: 0.35, trustThreshold: 55, isRival: false },
@@ -27,11 +30,29 @@ const targets = [
     { name: "Smuggler", profile: "Greasy, boat docked", worth: 210, trait: null, resistChance: 0.3, trustThreshold: 60, isRival: false },
     { name: "Arsonist", profile: "Twitchy, smells of gasoline", worth: 170, trait: null, resistChance: 0.35, trustThreshold: 55, isRival: false },
     { name: "Cult Enforcer", profile: "Fanatic, blade in hand", worth: 240, trait: null, resistChance: 0.25, trustThreshold: 65, isRival: false },
-    // Rival Killers (Idea #3)
+    // Original Rival Killer
     { name: "Trinity", profile: "Methodical, family man facade", worth: 600, trait: null, resistChance: 0.6, trustThreshold: 70, isRival: true },
-    // Innocent Target (Idea #2)
-    { name: "Lost Tourist", profile: "Clueless, camera in hand", worth: 500, trait: null, resistChance: 0.1, trustThreshold: 80, isRival: false, isInnocent: true }
+    // Original Innocent
+    { name: "Lost Tourist", profile: "Clueless, camera in hand", worth: 500, trait: null, resistChance: 0.1, trustThreshold: 80, isRival: false, isInnocent: true },
+    // New Criminal Targets
+    { name: "Loan Shark", profile: "Ruthless, preys on the desperate", worth: 260, trait: null, resistChance: 0.35, trustThreshold: 55, isRival: false },
+    { name: "Poacher", profile: "Cruel, hunts in the Everglades", worth: 190, trait: null, resistChance: 0.3, trustThreshold: 60, isRival: false },
+    { name: "Extortionist", profile: "Slick, squeezes small businesses", worth: 220, trait: null, resistChance: 0.4, trustThreshold: 50, isRival: false },
+    { name: "Organ Harvester", profile: "Cold, operates in backrooms", worth: 280, risk: true, trait: null, resistChance: 0.45, trustThreshold: 45, isRival: false },
+    { name: "Cult Leader", profile: "Charismatic, commands fanatics", worth: 370, risk: true, trait: null, resistChance: 0.5, trustThreshold: 40, isRival: false },
+    { name: "Arms Dealer", profile: "Shady, supplies the streets", worth: 240, trait: null, resistChance: 0.35, trustThreshold: 55, isRival: false },
+    { name: "Serial Burglar", profile: "Sneaky, leaves bodies behind", worth: 200, trait: null, resistChance: 0.25, trustThreshold: 65, isRival: false },
+    { name: "Stalker", profile: "Obsessive, hunts his prey", worth: 180, trait: null, resistChance: 0.3, trustThreshold: 60, isRival: false },
+    // New Rival Killers
+    { name: "Ice Truck Killer", profile: "Chilling, leaves frozen clues", worth: 650, trait: null, resistChance: 0.65, trustThreshold: 75, isRival: true },
+    { name: "Skinner", profile: "Brutal, peels his victims", worth: 620, trait: null, resistChance: 0.6, trustThreshold: 70, isRival: true },
+    // New Innocent Targets
+    { name: "Street Vendor", profile: "Friendly, sells late-night tacos", worth: 450, trait: null, resistChance: 0.15, trustThreshold: 75, isRival: false, isInnocent: true },
+    { name: "Night Nurse", profile: "Kind, works the graveyard shift", worth: 480, trait: null, resistChance: 0.1, trustThreshold: 80, isRival: false, isInnocent: true }
 ];
+
+// ... (rest of the code unchanged from the previous version)
+
 
 const targetTraits = ["Armed", "Connected", "Sloppy", "Suspicious", "Desperate"];
 const locations = {
